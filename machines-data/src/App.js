@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import data from './mock-data/machine_data.json';
 import MachinesList from './components/MachinesList';
 import MachinesListHeader from './components/MachinesListHeader';
