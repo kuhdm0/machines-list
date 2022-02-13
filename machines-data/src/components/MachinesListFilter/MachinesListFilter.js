@@ -3,7 +3,7 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 import { COLUMNS, BOOL_MAP } from '../../constants';
 import styles from './styles.module.scss';
 
-const MachinesListFilter = ({ data, setFilteredItems }) => {
+const MachinesListFilter = ({ data, filteredItems, setFilteredItems }) => {
   const [selectedField, setSelectedField] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
@@ -31,7 +31,8 @@ const MachinesListFilter = ({ data, setFilteredItems }) => {
   return (
     <Form className={styles.filter}>
       <Row className="d-flex align-items-center">
-        <Col md={4}></Col>
+        <Col md={2} className={styles.resultsNumber}><b>{filteredItems.length}</b> results shown</Col>
+        <Col md={2}></Col>
         <Col md={1}><Form.Label className="mb-0">Field</Form.Label></Col>
         <Col md={2}>
           <Form.Select aria-label="Default select example" onChange={handleSelect}>

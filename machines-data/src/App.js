@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className={styles.wrapper}>
-      <MachinesListFilter data={data} setFilteredItems={setFilteredItems} />
+      <MachinesListFilter data={data} filteredItems={filteredItems} setFilteredItems={setFilteredItems} />
       <Table striped bordered hover>
         <MachinesListHeader data={filteredItems} setItems={setFilteredItems} />
         <MachinesList items={filteredItems} />
