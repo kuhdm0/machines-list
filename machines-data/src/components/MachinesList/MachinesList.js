@@ -1,21 +1,18 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
 
 const MachinesList = ({ data }) => {
   return (
-    <Table striped bordered hover>      
-      <tbody>
-        {data.map(item => <tr key={item.id}>
-          <th>{item.id}</th>
-          <th>{item.guid}</th>
-          <th>{item.customer}</th>
-          <th>{item.asset_type}</th>
-          <th>{item.serial_number}</th>
-          <th>{item.service_contract ? 'yes' : 'no'}</th>
-          <th>{item.warranty ? 'yes' : 'no'}</th>
-        </tr>)}
-      </tbody>
-    </Table>
+    <tbody>
+      {data.map(item => <tr key={item.id}>
+        <td>{item.id}</td>
+        <td>{item.guid}</td>
+        <td>{item.customer}</td>
+        <td>{item.asset_type}</td>
+        <td>{item.serial_number}</td>
+        <td>{item.service_contract ? 'yes' : 'no'}</td>
+        <td>{item.warranty ? 'yes' : 'no'}</td>
+      </tr>)}
+    </tbody>
   );
 };
 
