@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TiArrowUnsorted } from 'react-icons/ti';
 import styles from './styles.module.scss';
 import { getSortedItems } from '../../utils';
 
 const MachinesListHeader = ({ data, setItems }) => {
+  const [inversed, setInversed] = useState(true);
+  const [lastSortedField, setLastSortedField] = useState('id');
 
   const onSort = (e) => {
-    setItems(getSortedItems(data, e.currentTarget.id));
+    const currentSortedField = e.currentTarget.id;    
+    setItems(getSortedItems(data, currentSortedField, lastSortedField, inversed, setInversed));
+    setInversed(lastSortedField === currentSortedField ? !inversed : true);
+    setLastSortedField(currentSortedField);
   };
 
   return (

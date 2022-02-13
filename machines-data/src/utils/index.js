@@ -1,11 +1,14 @@
-export const getSortedItems = (data, id) => {
+export const getSortedItems = (data, field, lastSortedField, inversed) => {
     data.sort((a, b) => {
-        if (typeof a[id] === 'number') {
-            return a[id] - b[id];
-        } 
+        const result = typeof a[field] === 'number'
+            ? a[field] - b[field]
+            : a[field].toString().localeCompare(b[field].toString());
+
+        if (field !== lastSortedField)
+            return result;
         else {
-            return a[id].toString().localeCompare(b[id].toString());
-        }
+            return inversed ? -result : result;
+        }        
     });
     
     return [...data];
