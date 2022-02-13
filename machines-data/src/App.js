@@ -8,14 +8,14 @@ import MachinesListFilter from './components/MachinesListFilter';
 import styles from './styles.module.scss';
 
 function App() {
-  const [items, setItems] = useState(data);
+  const [filteredItems, setFilteredItems] = useState(data);
 
   return (
     <div className={styles.wrapper}>
-      <MachinesListFilter />
+      <MachinesListFilter data={data} setFilteredItems={setFilteredItems} />
       <Table striped bordered hover>
-        <MachinesListHeader data={data} setItems={setItems} />
-        <MachinesList items={items} />
+        <MachinesListHeader data={filteredItems} setItems={setFilteredItems} />
+        <MachinesList items={filteredItems} />
       </Table>
     </div>
   );

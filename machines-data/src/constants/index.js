@@ -28,3 +28,8 @@ export const COLUMNS = [
         label: 'Warranty',
     },
 ];
+
+export const BOOL_MAP = {
+    true: 'yes',
+    false: 'no',
+};

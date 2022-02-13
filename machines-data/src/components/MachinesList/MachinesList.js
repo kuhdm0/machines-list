@@ -1,4 +1,5 @@
 import React from 'react';
+import { BOOL_MAP } from '../../constants';
 
 const MachinesList = ({ items }) => {
   return (
@@ -9,8 +10,8 @@ const MachinesList = ({ items }) => {
         <td>{item.customer}</td>
         <td>{item.asset_type}</td>
         <td>{item.serial_number}</td>
-        <td>{item.service_contract ? 'yes' : 'no'}</td>
-        <td>{item.warranty ? 'yes' : 'no'}</td>
+        <td>{BOOL_MAP[item.service_contract]}</td>
+        <td>{BOOL_MAP[item.warranty]}</td>
       </tr>)}
     </tbody>
   );
