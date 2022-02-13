@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'react-bootstrap';
 import data from './mock-data/machine_data.json';
@@ -7,12 +7,14 @@ import MachinesListHeader from './components/MachinesListHeader';
 import MachinesListFilter from './components/MachinesListFilter';
 
 function App() {
+  const [items, setItems] = useState(data);
+
   return (
     <div>
       <MachinesListFilter />
       <Table striped bordered hover>
-        <MachinesListHeader />
-        <MachinesList data={data} />
+        <MachinesListHeader data={data} setItems={setItems} />
+        <MachinesList items={items} />
       </Table>
     </div>
   );

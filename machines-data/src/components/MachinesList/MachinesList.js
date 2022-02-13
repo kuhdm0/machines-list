@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MachinesList = ({ data }) => {
+const MachinesList = ({ items }) => {
   return (
     <tbody>
-      {data.map(item => <tr key={item.id}>
+      {items.map(item => <tr key={item.id}>
         <td>{item.id}</td>
         <td>{item.guid}</td>
         <td>{item.customer}</td>

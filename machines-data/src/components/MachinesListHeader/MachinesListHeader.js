@@ -1,18 +1,24 @@
 import React from 'react';
 import { TiArrowUnsorted } from 'react-icons/ti';
 import styles from './styles.module.scss';
+import { getSortedItems } from '../../utils';
 
-const MachinesListHeader = () => {
+const MachinesListHeader = ({ data, setItems }) => {
+
+  const onSort = (e) => {
+    setItems(getSortedItems(data, e.currentTarget.id));
+  };
+
   return (
     <thead>
       <tr className={styles.header}>
-        <th>ID <TiArrowUnsorted /></th>
-        <th>GUID <TiArrowUnsorted /></th>
-        <th>Customer <TiArrowUnsorted /></th>
-        <th>Asset type <TiArrowUnsorted /></th>
-        <th>Serial number <TiArrowUnsorted /></th>
-        <th>Service contract <TiArrowUnsorted /></th>
-        <th>Warranty <TiArrowUnsorted /></th>
+        <th>ID <TiArrowUnsorted id="id" onClick={onSort} /></th>
+        <th>GUID <TiArrowUnsorted id="guid" onClick={onSort}/></th>
+        <th>Customer <TiArrowUnsorted id="customer" onClick={onSort}/></th>
+        <th>Asset type <TiArrowUnsorted id="asset_type" onClick={onSort}/></th>
+        <th>Serial number <TiArrowUnsorted id="serial_number" onClick={onSort}/></th>
+        <th>Service contract <TiArrowUnsorted id="service_contract" onClick={onSort}/></th>
+        <th>Warranty <TiArrowUnsorted id="warranty" onClick={onSort} /></th>
       </tr>
     </thead>
   );
