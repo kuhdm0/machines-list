@@ -1,0 +1,15 @@
+@import '../../themes/_colors';
+
+.filter {
+    background-color: $themeGray;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 2px;
+    text-align: right;
+    label {
+        font-weight: bold;
+    }
+    button {
+        width: 100%
+    }
+}

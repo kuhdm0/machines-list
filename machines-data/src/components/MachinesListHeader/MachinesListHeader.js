@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TiArrowUnsorted } from 'react-icons/ti';
 import styles from './styles.module.scss';
 import { getSortedItems } from '../../utils';
+import { COLUMNS } from '../../constants';
 
 const MachinesListHeader = ({ data, setItems }) => {
   const [inversed, setInversed] = useState(true);
@@ -17,13 +18,7 @@ const MachinesListHeader = ({ data, setItems }) => {
   return (
     <thead>
       <tr className={styles.header}>
-        <th>ID <TiArrowUnsorted id="id" onClick={onSort} /></th>
-        <th>GUID <TiArrowUnsorted id="guid" onClick={onSort}/></th>
-        <th>Customer <TiArrowUnsorted id="customer" onClick={onSort}/></th>
-        <th>Asset type <TiArrowUnsorted id="asset_type" onClick={onSort}/></th>
-        <th>Serial number <TiArrowUnsorted id="serial_number" onClick={onSort}/></th>
-        <th>Service contract <TiArrowUnsorted id="service_contract" onClick={onSort}/></th>
-        <th>Warranty <TiArrowUnsorted id="warranty" onClick={onSort} /></th>
+        {COLUMNS.map(column => <th key={column.id}>{column.label} <TiArrowUnsorted id={column.id} onClick={onSort} /></th>)}
       </tr>
     </thead>
   );
